@@ -1,0 +1,42 @@
+# Build artifacts
+bin/
+obj/
+
+# Visual Studio / Rider
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.ide
+
+# Logs and runtime files
+logs/
+*.log
+
+# Local storage and caches
+Data/Storage/
+*.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Rider / IDE
+.idea/
+
+# VS Code
+.vscode/
+
+# User-specific files
+.env
+
+# NuGet
+*.nupkg
+packages/
+
+# Publish
+publish/
+
+# Ignore compiled dlls
+**/bin/**
+**/obj/**

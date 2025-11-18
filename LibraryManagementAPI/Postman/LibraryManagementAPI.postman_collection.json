@@ -1,0 +1,437 @@
+{
+  "info": {
+    "name": "Library Management API",
+    "description": "Complete API collection for Library Management System with Book, Borrower, and Product management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/books?searchTerm=&genre=&page=1&pageSize=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "books"],
+              "query": [
+                {"key": "searchTerm", "value": ""},
+                {"key": "genre", "value": ""},
+                {"key": "page", "value": "1"},
+                {"key": "pageSize", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Book by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/books/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "books", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Book by ISBN",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/books/by-isbn/9780132350884",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "books", "by-isbn", "9780132350884"]
+            }
+          }
+        },
+        {
+          "name": "Add New Book",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Clean Code\",\n  \"author\": \"Robert C. Martin\",\n  \"isbn\": \"9780132350884\",\n  \"genre\": \"Programming\",\n  \"quantity\": 5,\n  \"publishedDate\": \"2008-08-01T00:00:00Z\",\n  \"publisher\": \"Prentice Hall\",\n  \"language\": \"English\",\n  \"shelfLocation\": \"A-101\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/books",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "books"]
+            }
+          }
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Clean Code Updated\",\n  \"author\": \"Robert C. Martin\",\n  \"isbn\": \"9780132350884\",\n  \"genre\": \"Programming\",\n  \"quantity\": 10,\n  \"publishedDate\": \"2008-08-01T00:00:00Z\",\n  \"publisher\": \"Prentice Hall\",\n  \"language\": \"English\",\n  \"shelfLocation\": \"A-102\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/books/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "books", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:5000/api/books/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "books", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Borrowers",
+      "item": [
+        {
+          "name": "Get All Borrowers",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/borrowers?page=1&pageSize=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrowers"],
+              "query": [
+                {"key": "page", "value": "1"},
+                {"key": "pageSize", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Borrower by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/borrowers/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrowers", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Borrower by Membership ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/borrowers/by-membership/MEM001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrowers", "by-membership", "MEM001"]
+            }
+          }
+        },
+        {
+          "name": "Add New Borrower",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"contactNumber\": \"9876543210\",\n  \"email\": \"john@example.com\",\n  \"membershipId\": \"MEM001\",\n  \"address\": \"123 Main St\",\n  \"membershipStartDate\": \"2024-01-01T00:00:00Z\",\n  \"membershipExpiryDate\": \"2025-12-31T00:00:00Z\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/borrowers",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrowers"]
+            }
+          }
+        },
+        {
+          "name": "Update Borrower",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe Updated\",\n  \"contactNumber\": \"9876543211\",\n  \"email\": \"john.updated@example.com\",\n  \"membershipId\": \"MEM001\",\n  \"address\": \"124 Main St\",\n  \"membershipStartDate\": \"2024-01-01T00:00:00Z\",\n  \"membershipExpiryDate\": \"2025-12-31T00:00:00Z\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/borrowers/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrowers", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Borrower",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:5000/api/borrowers/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrowers", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Borrow & Return",
+      "item": [
+        {
+          "name": "Borrow Book",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"borrowerId\": 1,\n  \"bookId\": 1,\n  \"days\": 14\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/borrows/borrow",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrows", "borrow"]
+            }
+          }
+        },
+        {
+          "name": "Return Book",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"borrowerId\": 1,\n  \"bookId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/borrows/return",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrows", "return"]
+            }
+          }
+        },
+        {
+          "name": "Get All Borrow Records",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/borrows?page=1&pageSize=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrows"],
+              "query": [
+                {"key": "page", "value": "1"},
+                {"key": "pageSize", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Borrow Record by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/borrows/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrows", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Active Borrows for Borrower",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/borrows/borrower/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrows", "borrower", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Overdue Records",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/borrows/overdue/list",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "borrows", "overdue", "list"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/products?search=&category=&sort=&page=1&pageSize=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "products"],
+              "query": [
+                {"key": "search", "value": ""},
+                {"key": "category", "value": ""},
+                {"key": "sort", "value": ""},
+                {"key": "page", "value": "1"},
+                {"key": "pageSize", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "products", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Product by SKU",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/products/by-sku/SKU001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "products", "by-sku", "SKU001"]
+            }
+          }
+        },
+        {
+          "name": "Add New Product",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Laptop\",\n  \"description\": \"High-performance laptop\",\n  \"sku\": \"SKU001\",\n  \"category\": \"Electronics\",\n  \"price\": 50000,\n  \"quantityInStock\": 10,\n  \"manufacturer\": \"Dell\",\n  \"weight\": \"1.5kg\",\n  \"dimensions\": \"35x25x2cm\",\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Laptop Updated\",\n  \"description\": \"High-performance laptop updated\",\n  \"sku\": \"SKU001\",\n  \"category\": \"Electronics\",\n  \"price\": 55000,\n  \"quantityInStock\": 8,\n  \"manufacturer\": \"Dell\",\n  \"weight\": \"1.5kg\",\n  \"dimensions\": \"35x25x2cm\",\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "products", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:5000/api/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "products", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "External APIs",
+      "item": [
+        {
+          "name": "Get Book Info from External API",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/external/bookinfo/9780132350884",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "external", "bookinfo", "9780132350884"]
+            }
+          }
+        },
+        {
+          "name": "Get API Logs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/external/logs?page=1&pageSize=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "external", "logs"],
+              "query": [
+                {"key": "page", "value": "1"},
+                {"key": "pageSize", "value": "10"}
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
